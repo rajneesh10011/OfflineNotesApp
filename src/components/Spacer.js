@@ -16,7 +16,7 @@ import { View } from 'react-native';
 import React from 'react';
 
 const Spacer = ({ height, width }) => {
-  return <View style={{ height, width }} />;
+  return <View testID='spacer-view' style={{ height, width }} />;
 };
 
 export default React.memo(Spacer);

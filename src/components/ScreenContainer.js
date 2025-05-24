@@ -14,16 +14,18 @@
  * </ScreenContainer>
  */
 
-import { SafeAreaView, StyleSheet } from 'react-native';
+import {SafeAreaView, StyleSheet} from 'react-native';
 import React from 'react';
 import colors from '../constant/colors';
 import MyStatusBar from './MyStatusBar';
 
-const ScreenContainer = ({ children, style }) => {
+const ScreenContainer = ({children, style}) => {
   return (
     <>
       <MyStatusBar backgroundColor={colors.primary} barStyle="default" />
-      <SafeAreaView style={[styles.container, style]}>{children}</SafeAreaView>
+      <SafeAreaView testID="screen-container" style={[styles.container, style]}>
+        {children}
+      </SafeAreaView>
     </>
   );
 };

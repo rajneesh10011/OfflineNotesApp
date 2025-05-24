@@ -1,13 +1,13 @@
-/**
- * @format
- */
+jest.mock('react-native-sqlite-storage');
 
 import React from 'react';
-import ReactTestRenderer from 'react-test-renderer';
+import { render, waitFor } from '@testing-library/react-native';
 import App from '../App';
 
-test('renders correctly', async () => {
-  await ReactTestRenderer.act(() => {
-    ReactTestRenderer.create(<App />);
+test('renders App without crashing', async () => {
+  const { getByTestId } = render(<App />);
+  
+  await waitFor(() => {
+    expect(getByTestId('app-main')).toBeTruthy();
   });
 });

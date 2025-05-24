@@ -32,18 +32,19 @@ import Spacer from './Spacer';
 const RNButton = ({ text, style, textStyle, onPress, icon, loading = false }) => {
   return (
     <TouchableOpacity
+      testID='rn-button'
       style={[styles.button, style, loading && styles.disabledButton]}
-      onPress={onPress}
+      onPress={!loading ? onPress : undefined}
       disabled={loading}
       activeOpacity={0.7}
     >
       {loading ? (
-        <ActivityIndicator size="small" color={colors.primaryText} />
+        <ActivityIndicator testID='activity-indicator' size="small" color={colors.primaryText} />
       ) : (
         <>
           {icon && icon}
           {icon && <Spacer width={5} />}
-          <Text style={[styles.buttonText, textStyle]}>{text}</Text>
+          <Text testID='rnbutton-text' style={[styles.buttonText, textStyle]}>{text}</Text>
         </>
       )}
     </TouchableOpacity>
